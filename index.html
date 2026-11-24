@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حكايتنا ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(145deg, #080808, #300811, #080808);
+    color: white;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 450px;
+    margin: auto;
+    padding: 55px 0 35px;
+}
+
+.small-title {
+    color: #ff7187;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 22px 0;
+}
+
+p {
+    color: #d8c5c9;
+    line-height: 2;
+}
+
+.panel {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,100,122,0.3);
+    border-radius: 22px;
+    padding: 25px 18px;
+    margin-top: 30px;
+    box-shadow: 0 10px 40px #0008;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #73303c;
+    background: #171112;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    margin: 15px 0;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #bd263f;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    animation: appear 1s ease;
+}
+
+.counter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.counter-item {
+    background: #ffffff0c;
+    border: 1px solid #ff647a35;
+    border-radius: 13px;
+    padding: 13px 3px;
+}
+
+.counter-item h2 {
+    color: #ff7187;
+    font-size: 25px;
+    margin: 5px 0 10px;
+    direction: ltr;
+}
+
+.counter-item span {
+    color: #d9c5c9;
+    font-size: 12px;
+}
+
+.memory {
+    background: #ffffff0c;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 15px;
+    border: 1px solid #ffffff18;
+}
+
+.memory h3 {
+    color: #ff7187;
+}
+
+footer {
+    color: #927d81;
+    font-size: 12px;
+    margin-top: 45px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="small-title">A SPECIAL MESSAGE FOR YOU</div>
+
+    <h1>في حاجة حلوة مستنياكي ❤️</h1>
+
+    <p>
+        عملتلك مكان صغير مخصوص ليكي...
+        بس مش أي حد يقدر يدخله.
+    </p>
+
+    <div class="panel" id="login">
+
+        <h2>مستعدة للمفاجأة؟</h2>
+
+        <p>تاريخ ميلادك يا روكي ❤️</p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="اكتبي كلمة السر هنا"
+        >
+
+        <button onclick="unlock()">افتحي المفاجأة ❤️</button>
+
+        <p id="error" style="color:#ff647a"></p>
+
+    </div>
+
+    <div id="surprise" class="hidden message">
+
+        <h1>أهلاً بأجمل إنسانة ❤️</h1>
+
+        <div class="panel">
+
+            <h2>رسالة ليكي</h2>
+
+            <p>
+                مش عارف أبدأ كلامي منين،
+                بس انتي مكسب حياتي وعمره كله يا أجمل إنسانة في الدنيا.
+                وجودك في حياتي أهم حاجة في الدنيا.
+                <br><br>
+                ومتزعليش مني يا حبيبتي،
+                أنا مليش غيرك في الدنيا دي والله،
+                وهعدل من نفسي ومش هعمل كدا تاني،
+                وبحبك أوي أقسم بالله.
+                <br><br>
+                عملت الموقع ده علشان يكون ليكي مكان
+                نفتكر فيه أحلى لحظاتنا،
+                وكل حاجة حلوة مستنيانا.
+                <br><br>
+                ولسه الحكاية في أولها ❤️
+            </p>
+
+        </div>
+
+        <div class="panel">
+
+            <h2>حكايتنا بقالها ❤️</h2>
+
+            <p>كل ثانية عدت كانت جزء من حكايتنا</p>
+
+            <div class="counter">
+
+                <div class="counter-item">
+                    <h2 id="days">0</h2>
+                    <span>يوم</span>
+                </div>
+
+                <div class="counter-item">
+                    <h2 id="hours">0</h2>
+                    <span>ساعة</span>
+                </div>
+
+                <div class="counter-item">
+                    <h2 id="minutes">0</h2>
+                    <span>دقيقة</span>
+                </div>
+
+                <div class="counter-item">
+                    <h2 id="seconds">0</h2>
+                    <span>ثانية</span>
+                </div>
+
+            </div>
+
+            <p>من يوم 24 أبريل 2024 ❤️</p>
+
+        </div>
+
+        <h2 style="margin-top:40px">حكايتنا لسه مكملة</h2>
+
+        <div class="memory">
+
+            <h3>أول ذكرى</h3>
+
+            <p>
+                أول مرة أقولك فيها بحبك،
+                فاكرة قولتيلي إيه؟
+                <br><br>
+                أول مرة أشوفك فيها في مورا مورا،
+                عمري ما أنساها،
+                كنتي حلوة أوي أوي والله،
+                عمري ما أنساها ❤️
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <h3>أجمل لحظة</h3>
+
+            <p>
+                الأوقات اللي بنبقى فيها مع بعض
+                عمري ما أنساها،
+                ببقى أسعد حد في الدنيا دي والله
+                وأنا ماسك إيدك.
+                <br><br>
+                البوسة اللي أخدتيها،
+                عقبال ما أخدك وأبوسك كتير أوي أوي ❤️
+            </p>
+
+        </div>
+
+        <div class="memory">
+
+            <h3>اللي جاي أحلى</h3>
+
+            <p>
+                لسه قدامنا ذكريات كتير هنعملها سوا ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+    <footer>
+        Made with love ❤️
+    </footer>
+
+</div>
+
+<script>
+
+const correctPassword = "772007";
+
+function unlock() {
+
+    const entered = document.getElementById("password").value;
+
+    if (entered === correctPassword) {
+
+        document.getElementById("login").classList.add("hidden");
+
+        document.getElementById("surprise").classList.remove("hidden");
+
+        updateCounter();
+
+    } else {
+
+        document.getElementById("error").textContent =
+            "كلمة السر مش صحيحة، حاولي تاني ❤️";
+
+    }
+}
+
+// عداد من تاريخ 24 أبريل 2024
+
+function updateCounter() {
+
+    const startDate = new Date(2024, 3, 24, 0, 0, 0);
+
+    const now = new Date();
+
+    let difference = Math.max(0, now - startDate);
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
+
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
+
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+
+}
+
+setInterval(updateCounter, 1000);
+
+</script>
+
+</body>
+</html>
+
